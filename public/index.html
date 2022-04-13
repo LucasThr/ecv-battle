@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Battle</title>
+</head>
+
+<body class="bg-gray-800 w-screen h-screen flex justify-center items-center">
+  <main class="flex flex-col w-11/12 h-5/6 bg-gray-700 rounded">
+    <section id="interface" class=" flex justify-center items-center h-2/3 w-full  text-gray-300">
+      <div id="history" class="overscroll-y-auto	overflow-y-scroll flex-col-reverse p-3 w-5/12 h-full  justify-center items-center bg-gray-500 text-gray-300">
+
+      </div>
+      <div class="relative flex justify-center items-center h-full w-7/12">
+
+        <div class="absolute top-5 left-5">
+          <span>Monstres tuées : </span><span id="monsterKill">0</span>
+        </div>
+        <div class="">
+
+          <div id="monsterName"></div>
+          <div id="monsterLife"></div>
+        </div>
+      </div>
+
+    </section>
+    <section class=" flex justify-center items-center h-1/3 w-full border-2">
+      <div id="stats" class="flex flex-col justify-start bg-blue-700 w-5/12 h-full p-6 text-gray-300">
+        <div><span class="font-bold">Classe : </span><span>Mage</span></div>
+        <div><span class="font-bold">Niveau : </span><span id="level">0</span></div>
+        <div><span class="font-bold">Expérience : </span><span id="xp">0</span>/<span id="maxXp"></span></div>
+        <div><span class="font-bold">Vie : </span><span id="life">0</span><span></span></div>
+        <div><span class="font-bold">Compétence : </span><span id="textSkill">0</span><span>/100</span></div>
+      </div>
+      <div id="button" class="relative flex justify-around items-center h-full w-7/12 ">
+        <div id="waiting" class="absolute w-full h-full bg-gray-700 flex justify-center items-center text-gray-300">En
+          attente du prochain tour</div>
+        <button id="hit" class="w-48 h-20 bg-gray-300 rounded"> Frapper</button>
+        <button id="skill" class="w-48 h-20 bg-gray-300 rounded"> Compétence</button>
+        <button id="heal" class="w-48 h-20 bg-gray-300 rounded"> Se soigner</button>
+      </div>
+    </section>
+
+  </main>
+  <script type="module" src="../src/main.js"></script>
+</body>
+
+</html>
