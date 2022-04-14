@@ -5,18 +5,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link href="/assets/output.css" rel="stylesheet">
   <title>Battle</title>
 </head>
 
 <body class="relative bg-gray-800 w-screen h-screen flex justify-center items-center">
-  <main id="choose" class="absolute z-50 flex justify-evenly items-center w-screen h-screen bg-gray-900 rounded">
-    <div id="chooseMagician" class="h-20 w-56 bg-gray-400 flex justify-center items-center rounded">
-      Magicien
+  <main id="choose"
+    class="absolute z-50 flex flex-col justify-center items-center w-screen h-screen bg-gray-900 rounded">
+    <div id="isDead" class=" hidden bg-black mt-64 text-red-600 text-6xl">
+      MORT
     </div>
-    <div id="chooseFighter" class="h-20 w-56 bg-gray-400 flex justify-center items-center rounded">
-      Combattant
+    <div class="flex justify-evenly items-center w-screen h-screen bg-gray-900 rounded">
+
+      <div id="chooseMagician" class="h-20 w-56 bg-gray-400 flex justify-center items-center rounded">
+        Magicien
+      </div>
+      <div id="chooseFighter" class="h-20 w-56 bg-gray-400 flex justify-center items-center rounded">
+        Combattant
+      </div>
     </div>
+
+
   </main>
   <main class="flex flex-col w-11/12 h-5/6 bg-gray-700 rounded">
     <section id="interface" class=" flex justify-center items-center h-2/3 w-full  text-gray-300">
@@ -27,7 +37,7 @@
       <div class="relative flex justify-center items-center h-full w-7/12">
 
         <div class="absolute top-5 left-5">
-          <span>Monstres tuées : </span><span id="monsterKill">0</span>
+          <span>Monstres tués : </span><span id="monsterKill">0</span>
         </div>
         <div class="absolute top-5 right-5">
           <span>Tours : </span><span id="turn">0</span>
@@ -64,7 +74,7 @@
           attente du prochain tour</div>
         <button id="hit" class="w-48 h-20 bg-gray-300 rounded"> Frapper</button>
         <button id="skill" class="w-48 h-20 bg-gray-300 rounded"> Compétence</button>
-        <button id="heal" class="w-48 h-20 bg-gray-300 justify-center items-center rounded flex flex-col"> 
+        <button id="heal" class="w-48 h-20 bg-gray-300 justify-center items-center rounded flex flex-col">
           <span>
             <span id="potion"></span> <span>potion(s)</span>
           </span>

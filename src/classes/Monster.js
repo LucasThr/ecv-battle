@@ -8,7 +8,7 @@ export class Monster {
   image;
   damage
   constructor() {
-    let monster = monsters[Math.floor(Math.random() * (monsters.length - 1))]
+    let monster = monsters[Math.floor(Math.random() * (monsters.length))]
     this.life = monster.life
     this.level = monster.level
     this.name = monster.name

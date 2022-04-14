@@ -1,4 +1,4 @@
-import { heroes } from "https://ecv-battle.vercel.app/config/HeroList.js";
+import { heroes } from "../../config/HeroList.js";
 import { Hero } from "./Hero.js";
 import { Monster } from "./Monster.js";
 
@@ -10,13 +10,15 @@ export class Game {
   ]
   turn = 0
   constructor(role) {
-    console.log("okokoko", role);
-    console.log('first', heroes.filter(hero => hero.type === role))
     this.hero = new Hero(heroes.filter(hero => hero.type === role)[0])
     this.turn = 0
     this.monster = new Monster()
     this.handleCanPlay()
     this.update()
+    const waiting = document.getElementById('waiting')
+    waiting.classList.add('hidden')
+    const history = document.getElementById('history')
+    history.innerHTML=""
   }
 
 
@@ -45,7 +47,6 @@ export class Game {
 
   play(type) {
     if (type === "heal") this.heal()
-
     if (Math.floor(Math.random() * 100) <= 10) type = 'echec'
     if (type === "hit") this.hit()
     if (type === "useSkill") this.useSkill()
@@ -55,11 +56,19 @@ export class Game {
     setTimeout(() => {
       let damage = this.monster.attack()
       let damageReceive = damage - this.hero.defense < 0 ? 0 : damage - this.hero.defense
-      this.hero.life -= (damageReceive)
+      this.hero.life -= damageReceive
       this.addToHistory(this.monster.name + " vous inflige " + damageReceive + ' dégats')
+      
+      console.log('this.hero.life', this.hero.life)
+      if(this.hero.life<=0){
+        console.log("MORT");
+        const chooseContainer = document.getElementById('choose')
+        const isDead = document.getElementById('isDead')
+        chooseContainer.classList.remove('hidden')
+        isDead.classList.remove('hidden')
+      }
       this.update()
       this.hero.update()
-
       this.handleCanPlay()
 
     }, 1500);
@@ -84,10 +93,16 @@ export class Game {
     let isDead = this.monster.receiveAttack(damage)
     if (isDead) {
       this.kill += 1
+      this.addToHistory('Monstre tué !')
+
       this.hero.gold += 10
+      this.addToHistory('+10 gold')
       this.hero.setXp(this.monster.level * 40)
+      this.addToHistory(this.monster.level * 40 + " points d'éxpériences gagnés !")
       setTimeout(() => {
         this.monster = new Monster()
+      this.addToHistory('Un nouveau monstre apparait')
+
       }, 1000);
     }
     this.update()

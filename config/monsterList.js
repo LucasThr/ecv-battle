@@ -21,8 +21,8 @@ export const monsters =[
     id:1,
     name:"Grande citrouille",
     level:2,
-    life:200,
+    life:150,
     damage:20,
-    image:'./assets/monster2.png'
+    image:'./assets/monster3.png'
   }
 ]
