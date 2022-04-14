@@ -6,7 +6,7 @@ export const heroes = [{
   defense: 10,
   damage: 30,
   skillDamage: 20,
-  skillName:"Résistance",
+  skillName:"Coup Lourd",
   skill: 100
 },
 {
