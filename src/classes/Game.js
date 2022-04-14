@@ -1,4 +1,4 @@
-import { heroes } from "../../config/HeroList.js";
+import { heroes } from "https://ecv-battle.vercel.app/config/HeroList.js";
 import { Hero } from "./Hero.js";
 import { Monster } from "./Monster.js";
 

@@ -1,7 +1,4 @@
-import { heroes } from '../config/HeroList.js'
 import { Game } from './classes/Game.js'
-import { Hero } from './classes/Hero.js'
-import { Monster } from './classes/Monster.js'
 
 const chooseFighter = document.getElementById('chooseFighter')
 const chooseMagician = document.getElementById('chooseMagician')
